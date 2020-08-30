@@ -60,10 +60,9 @@ class InteractiveRecord
         INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})
         SQL
         # binding.pry
-        dumb_reason = DB[:conn].execute(sql.strip)
+        DB[:conn].execute(sql.strip)
        
         @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
-        dumb_reason
     end
 
 
